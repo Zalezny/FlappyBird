@@ -1,10 +1,11 @@
 #include <iostream>
 import Is_Prime;
 import Rectangle;
+import Calculator;
 using namespace std;
 
 int main() {
-	int n;
+	/*int n;
 	cout << "Podaj liczbe: ";
 	cin >> n;
 	cout << endl;
@@ -15,6 +16,8 @@ int main() {
 
 	Rectangle obj;
 	cout << "Obwod wynosi dla prostokata 5x10: " << obj.circuit(5, 10) << endl;
-	cout << "Pole wynosi dla prostokata 5x10: " << obj.field(5, 10) << endl;
+	cout << "Pole wynosi dla prostokata 5x10: " << obj.field(5, 10) << endl;*/
+
+	initCalc();
 
 }
