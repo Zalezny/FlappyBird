@@ -1,9 +1,5 @@
+#include "includes.h"
 export module Calculator_Logix;
-
-#include<iostream>
-#include<cmath>
-#include<Windows.h>
-
 
 export double add(double x, double y) {
 	return x + y;

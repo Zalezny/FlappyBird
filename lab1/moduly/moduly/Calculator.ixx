@@ -1,8 +1,6 @@
+#include "includes.h"
 export module Calculator;
-#include<iostream>
-#include<cmath>
-#include<Windows.h>
-export import Calculator_Logix;
+import Calculator_Logix;
 
 
 export void initCalc() {

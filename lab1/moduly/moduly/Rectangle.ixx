@@ -1,11 +1,11 @@
 export module Rectangle;
 
 
-export class Rectangle {
+export class RectangleClass {
 
 public:
-	Rectangle() {}
-	~Rectangle() {}
+	RectangleClass() {}
+	~RectangleClass() {}
 	
 	double circuit(double x, double y) {
 		return (2 * x) + (2 * y);
