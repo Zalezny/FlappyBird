@@ -7,8 +7,8 @@ using namespace sf;
 class Game {
 	shared_ptr<RenderWindow> window;
 	double gravity, frame, space;
-	Texture background, bird, pipe;
-	Sprite background, bird, pipe;
+	Texture backgroundTexture, birdTexture, pipeTexture;
+	shared_ptr<Sprite> backgroundSprite, birdSprite, pipeBottomSprite, pipeTopSprite;
 public:
 	Game();
 	void run();
