@@ -1,1 +1,6 @@
-#pragma once
+#include "Bird.h"
+
+
+Bird::Bird() {
+
+};
