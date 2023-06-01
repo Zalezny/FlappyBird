@@ -2,28 +2,28 @@
 
 Game::Game() {
 	bird = Bird();
+	bottomObstacle = Obstacle("./resources/images/pipe.png");
+	topObstacle = Obstacle("./resources/images/pipe.png");
+
+	//set window
 	window = make_shared<RenderWindow>(VideoMode(1000, 600), "FlappyBird", Style::Titlebar | Style::Close);
 	window->setFramerateLimit(60);
 	window->setPosition(Vector2i(0, 0));
 	gravity = 0;
 	frame = 0;
 	space = 160.0;
+	//set background
 	backgroundTexture.loadFromFile("./resources/images/background.jpg");
-	pipeTexture.loadFromFile("./resources/images/pipe.png");
-	
 	backgroundSprite = make_shared<Sprite>();
 	backgroundSprite->setTexture(backgroundTexture);
-	pipeBottomSprite = make_shared<Sprite>();
-	pipeBottomSprite->setTexture(pipeTexture);
-	pipeTopSprite = make_shared<Sprite>();
-	pipeTopSprite->setTexture(pipeTexture);
 
-	bird.setPosition(
-		500.f - bird.getTexture().getSize().x / 2.f,
-		500.f - bird.getTexture().getSize().y / 2.f
-		);
-	bird.getSprite()->setScale(2.f, 2.f);
-	bird.getSprite()->setTextureRect(IntRect(0, 0, 34, 24));
+	//set obstacles
+	bottomObstacle.getSprite()->setScale(1.5f, 1.5f);
+	bottomObstacle.getSprite()->setPosition(100, 200);
+
+	topObstacle.getSprite()->setScale(1.5f, -1.5f);
+	topObstacle.getSprite()->setPosition(100, 100);
+
 };
 
 void Game::run() {
