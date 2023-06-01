@@ -15,6 +15,8 @@ class Game {
 	shared_ptr<Sprite> backgroundSprite;
 public:
 	Game();
+	
 	void run();
+	void events();
 
 };

@@ -1,5 +1,10 @@
 #include "Obstacle.h"
 
+Obstacle::Obstacle() {
+	sprite = make_shared<Sprite>();
+	sprite->setTexture(texture);
+}
+
 Obstacle::Obstacle(String texturePath) {
 	sprite = make_shared<Sprite>();
 	texture.loadFromFile(texturePath);

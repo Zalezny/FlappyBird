@@ -31,3 +31,12 @@ void Game::run() {
 
 	}
 }
+
+void Game::events() {
+	auto event = std::make_shared<sf::Event>();
+	while (window->pollEvent(*event)) {
+		if (event->type == sf::Event::Closed) {
+			window->close();
+		}
+	}
+}

@@ -8,6 +8,7 @@ class Obstacle {
 	Texture texture;
 	shared_ptr<Sprite> sprite;
 public:
+	Obstacle();
 	Obstacle(String texturePath);
 	Texture getTexture();
 	shared_ptr<Sprite> getSprite();
