@@ -17,6 +17,13 @@ Game::Game() {
 	pipeBottomSprite->setTexture(pipeTexture);
 	pipeTopSprite = make_shared<Sprite>();
 	pipeTopSprite->setTexture(pipeTexture);
+
+	bird.setPosition(
+		500.f - bird.getTexture().getSize().x / 2.f,
+		500.f - bird.getTexture().getSize().y / 2.f
+		);
+	bird.getSprite()->setScale(2.f, 2.f);
+	bird.getSprite()->setTextureRect(IntRect(0, 0, 34, 24));
 };
 
 void Game::run() {

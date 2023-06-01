@@ -14,3 +14,7 @@ shared_ptr<Sprite> Bird::getSprite() {
 Texture Bird::getTexture() {
 	return texture;
 }
+
+void Bird::setPosition(float x, float y) {
+	sprite->setPosition(x, y);
+}

@@ -13,5 +13,6 @@ public:
 	Bird();
 	shared_ptr<Sprite> getSprite();
 	Texture getTexture();
+	void setPosition(float x, float y)
 
 };
