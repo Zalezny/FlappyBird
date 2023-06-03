@@ -1,13 +1,11 @@
 #include "Obstacle.h"
 
 Obstacle::Obstacle() {
-	sprite = make_shared<Sprite>();
-	sprite->setTexture(texture);
 }
 
-Obstacle::Obstacle(String texturePath) {
+void Obstacle::init() {
 	sprite = make_shared<Sprite>();
-	texture.loadFromFile(texturePath);
+	texture.loadFromFile("./resources/images/pipe.png");
 	sprite->setTexture(texture);
 }
 

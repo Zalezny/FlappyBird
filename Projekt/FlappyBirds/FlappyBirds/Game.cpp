@@ -2,8 +2,14 @@
 
 Game::Game() {
 	bird = Bird();
-	bottomObstacle = Obstacle("./resources/images/pipe.png");
-	topObstacle = Obstacle("./resources/images/pipe.png");
+	bottomObstacle = Obstacle();
+	topObstacle = Obstacle();
+	background = Background();
+
+	background.init();
+	topObstacle.init();
+	bottomObstacle.init();
+	bird.init();
 
 	//set window
 	window = make_shared<RenderWindow>(VideoMode(1000, 600), "FlappyBird", Style::Titlebar | Style::Close);
@@ -13,9 +19,7 @@ Game::Game() {
 	frame = 0;
 	space = 160.0;
 	//set background
-	backgroundTexture.loadFromFile("./resources/images/background.jpg");
-	backgroundSprite = make_shared<Sprite>();
-	backgroundSprite->setTexture(backgroundTexture);
+	
 
 	//set obstacles
 	bottomObstacle.getSprite()->setScale(1.5f, 1.5f);
@@ -28,15 +32,25 @@ Game::Game() {
 
 void Game::run() {
 	while (window->isOpen()) {
-
+		events();
+		draw();
 	}
 }
 
 void Game::events() {
 	auto event = std::make_shared<sf::Event>();
 	while (window->pollEvent(*event)) {
-		if (event->type == sf::Event::Closed) {
+		if (event->type == Event::Closed) {
 			window->close();
 		}
 	}
+}
+
+void Game::draw() {
+	window->clear(sf::Color::Black);
+	window->draw(*background.getSprite());
+	window->draw(*bird.getSprite());
+	window->draw(*bottomObstacle.getSprite());
+	window->draw(*topObstacle.getSprite());
+	window->display();
 }

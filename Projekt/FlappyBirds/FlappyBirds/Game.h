@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Bird.h"
 #include "Obstacle.h"
+#include "Background.h"
 
 using namespace std;
 using namespace sf;
@@ -11,12 +12,12 @@ class Game {
 	double gravity, frame, space;
 	Bird bird;
 	Obstacle bottomObstacle, topObstacle;
-	Texture backgroundTexture;
-	shared_ptr<Sprite> backgroundSprite;
+	Background background;
 public:
 	Game();
 	
 	void run();
 	void events();
+	void draw();
 
 };

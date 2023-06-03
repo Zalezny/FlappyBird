@@ -5,12 +5,13 @@ using namespace std;
 using namespace sf;
 
 class Bird {
-	int countOfObstacle = 0;
+	int countOfObstacles;
 	shared_ptr<Sprite> sprite;
 	Texture texture;
 
 public:
 	Bird();
+	void init();
 	shared_ptr<Sprite> getSprite();
 	Texture getTexture();
 	void setPosition(float x, float y);
