@@ -29,3 +29,7 @@ Texture Bird::getTexture() {
 void Bird::setPosition(float x, float y) {
 	sprite->setPosition(x, y);
 }
+
+void Bird::setScale(float x, float y) {
+	sprite->setScale(x, y);
+}

@@ -12,26 +12,28 @@ Game::Game() {
 	bird.init();
 
 	//set window
-	window = make_shared<RenderWindow>(VideoMode(1000, 600), "FlappyBird", Style::Titlebar | Style::Close);
-	window->setFramerateLimit(60);
-	window->setPosition(Vector2i(0, 0));
-	gravity = 0;
-	frame = 0;
-	space = 160.0;
-	//set background
+	windowConfig = WindowConfig();
+	renderWindow = std::make_shared<sf::RenderWindow>(
+		sf::VideoMode(1000, 600),
+		"FlappyBird",
+		sf::Style::Titlebar | sf::Style::Close
+		);
+	renderWindow->setFramerateLimit(60);
+	renderWindow->setPosition(sf::Vector2i(0, 0));
 	
 
 	//set obstacles
-	bottomObstacle.getSprite()->setScale(1.5f, 1.5f);
-	bottomObstacle.getSprite()->setPosition(100, 200);
+	bottomObstacle.setScale(1.5f, 1.5f);
+	bottomObstacle.setPosition(100, 200);
 
-	topObstacle.getSprite()->setScale(1.5f, -1.5f);
-	topObstacle.getSprite()->setPosition(100, 100);
+	topObstacle.setScale(1.5f, -1.5f);
+	topObstacle.setPosition(100, 100);
+
 
 };
 
 void Game::run() {
-	while (window->isOpen()) {
+	while (renderWindow->isOpen()) {
 		events();
 		draw();
 	}
@@ -39,18 +41,18 @@ void Game::run() {
 
 void Game::events() {
 	auto event = std::make_shared<sf::Event>();
-	while (window->pollEvent(*event)) {
+	while (renderWindow->pollEvent(*event)) {
 		if (event->type == Event::Closed) {
-			window->close();
+			renderWindow->close();
 		}
 	}
 }
 
 void Game::draw() {
-	window->clear(sf::Color::Black);
-	window->draw(*background.getSprite());
-	window->draw(*bird.getSprite());
-	window->draw(*bottomObstacle.getSprite());
-	window->draw(*topObstacle.getSprite());
-	window->display();
+	renderWindow->clear(Color::Black);
+	renderWindow->draw(*background.getSprite());
+	renderWindow->draw(*bird.getSprite());
+	renderWindow->draw(*bottomObstacle.getSprite());
+	renderWindow->draw(*topObstacle.getSprite());
+	renderWindow->display();
 }

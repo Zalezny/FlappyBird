@@ -15,5 +15,6 @@ public:
 	shared_ptr<Sprite> getSprite();
 	Texture getTexture();
 	void setPosition(float x, float y);
+	void setScale(float x, float y);
 
 };
