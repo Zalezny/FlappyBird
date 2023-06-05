@@ -17,6 +17,9 @@ class Game {
 	vector<Sprite> obstacles;
 	int count;
 	bool gameover;
+	Font font;
+	Text scoreTxt, gameoverTxt;
+	int score;
 
 public:
 	Game();

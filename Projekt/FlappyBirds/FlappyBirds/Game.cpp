@@ -26,13 +26,25 @@ Game::Game() {
 	topObstacle.setScale(1.5f, -1.5f);
 
 	gameover = false;
+
+	//font
+	font.loadFromFile("./resources/fonts/flappy_bird_font.ttf");
+	gameoverTxt.setFont(font);
+	gameoverTxt.setString("Press SPACE to restart");
+	gameoverTxt.setPosition(200, 300);
+	gameoverTxt.setCharacterSize(50);
+	gameoverTxt.setOutlineThickness(3);
+
+	//score
+	score = 0;
 };
 
 void Game::run() {
 	while (renderWindow->isOpen()) {
 		events();
 		draw();
-		play();
+		if(!gameover) 
+			play();
 	}
 	
 }
@@ -44,6 +56,17 @@ void Game::events() {
 			renderWindow->close();
 		}
 	}
+
+	if (gameover && sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		score = 0;
+		obstacles.clear();
+
+		bird.setPosition(
+			500.f - bird.getX() / 2.f,
+			300.f - bird.getY() / 2.f
+		);
+		gameover = false;
+	}
 }
 
 void Game::draw() {
@@ -53,6 +76,10 @@ void Game::draw() {
 		renderWindow->draw(o);
 	}
 	renderWindow->draw(*bird.getSprite());
+
+	if (gameover) {
+		renderWindow->draw(gameoverTxt);
+	}
 	renderWindow->display();
 	++count;
 }
@@ -77,6 +104,10 @@ void Game::moveObstacles()
 	}
 
 	for (size_t i = 0; i < obstacles.size(); i++) {
+		if (obstacles[i].getGlobalBounds().intersects(bird.getSprite()->getGlobalBounds())) {
+			gameover = true;
+		}
+
 		if (obstacles[i].getPosition().x < -100) {
 			obstacles.erase(obstacles.begin() + i);
 		}
@@ -101,9 +132,7 @@ void Game::moveBird() {
 
 void Game::play()
 {
-	if (!gameover) {
-		animeBird();
-		moveBird();
-		moveObstacles();
-	}
+	animeBird();
+	moveBird();
+	moveObstacles();
 }

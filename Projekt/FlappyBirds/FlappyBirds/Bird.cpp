@@ -22,6 +22,14 @@ shared_ptr<Sprite> Bird::getSprite() {
 	return sprite;
 }
 
+int Bird::getX() {
+	return texture.getSize().x;
+}
+
+int Bird::getY() {
+	return texture.getSize().y;
+}
+
 Texture Bird::getTexture() {
 	return texture;
 }

@@ -19,4 +19,6 @@ public:
 	void incrementPoints();
 	int getPoints();
 	void setPoints(int point);
+	int getX();
+	int getY();
 };
