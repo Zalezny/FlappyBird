@@ -21,21 +21,20 @@ Game::Game() {
 	renderWindow->setFramerateLimit(60);
 	renderWindow->setPosition(sf::Vector2i(0, 0));
 	
-
 	//set obstacles
 	bottomObstacle.setScale(1.5f, 1.5f);
-
 	topObstacle.setScale(1.5f, -1.5f);
 
-
+	gameover = false;
 };
 
 void Game::run() {
 	while (renderWindow->isOpen()) {
 		events();
 		draw();
+		play();
 	}
-	play();
+	
 }
 
 void Game::events() {
@@ -50,17 +49,25 @@ void Game::events() {
 void Game::draw() {
 	renderWindow->clear(Color::Black);
 	renderWindow->draw(*background.getSprite());
-	renderWindow->draw(*bird.getSprite());
 	for (auto& o : obstacles) {
 		renderWindow->draw(o);
 	}
+	renderWindow->draw(*bird.getSprite());
 	renderWindow->display();
-	bird.incrementPoints();
+	++count;
 }
 
 void Game::moveObstacles()
 {
-	if (bird.getPoints() % 150 == 0) {
+	if (Mouse::isButtonPressed(Mouse::Left)) {
+		windowConfig.gravity = -8.f;
+		bird.getSprite()->setRotation(-windowConfig.frame - 10.f);
+	}
+	else {
+		bird.getSprite()->setRotation(windowConfig.frame - 10.f);
+	}
+
+	if (count % 150 == 0) {
 		int position = rand() % 275 + 175;
 		bottomObstacle.setPosition(1000, position + windowConfig.space);
 		topObstacle.setPosition(1000, position);
@@ -77,7 +84,26 @@ void Game::moveObstacles()
 	}
 }
 
+void Game::animeBird() {
+	windowConfig.frame += 0.15f;
+
+	if (windowConfig.frame > 3) {
+		windowConfig.frame -= 3;
+	}
+
+	bird.getSprite()->setTextureRect(sf::IntRect(34 * (int)windowConfig.frame, 0, 34, 24));
+}
+
+void Game::moveBird() {
+	bird.getSprite()->move(0, windowConfig.gravity);
+	windowConfig.gravity += 0.5f;
+}
+
 void Game::play()
 {
-	
+	if (!gameover) {
+		animeBird();
+		moveBird();
+		moveObstacles();
+	}
 }

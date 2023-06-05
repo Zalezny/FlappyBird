@@ -15,6 +15,9 @@ class Game {
 	Obstacle bottomObstacle, topObstacle;
 	Background background;
 	vector<Sprite> obstacles;
+	int count;
+	bool gameover;
+
 public:
 	Game();
 	void run();
@@ -22,4 +25,6 @@ public:
 	void draw();
 	void moveObstacles();
 	void play();
+	void animeBird();
+	void moveBird();
 };
