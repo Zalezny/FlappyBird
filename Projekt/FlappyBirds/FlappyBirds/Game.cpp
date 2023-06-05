@@ -26,6 +26,7 @@ Game::Game() {
 	topObstacle.setScale(1.5f, -1.5f);
 
 	gameover = false;
+	isIncrementScore = false;
 
 	//font
 	font.loadFromFile("./resources/fonts/flappy_bird_font.ttf");
@@ -37,6 +38,12 @@ Game::Game() {
 
 	//score
 	score = 0;
+	// score text
+	scoreTxt.setFont(font);
+	scoreTxt.setString(std::to_string(score));
+	scoreTxt.setPosition(10, 10);
+	scoreTxt.setCharacterSize(50);
+	scoreTxt.setOutlineThickness(3);
 };
 
 void Game::run() {
@@ -59,6 +66,7 @@ void Game::events() {
 
 	if (gameover && sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 		score = 0;
+		scoreTxt.setString(std::to_string(score));
 		obstacles.clear();
 
 		bird.setPosition(
@@ -80,6 +88,7 @@ void Game::draw() {
 	if (gameover) {
 		renderWindow->draw(gameoverTxt);
 	}
+	renderWindow->draw(scoreTxt);
 	renderWindow->display();
 	++count;
 }
@@ -112,6 +121,14 @@ void Game::moveObstacles()
 			obstacles.erase(obstacles.begin() + i);
 		}
 		obstacles[i].move(-3, 0);
+
+		if (obstacles[i].getPosition().x == 298 && !isIncrementScore) {
+			scoreTxt.setString(std::to_string(++score));
+			isIncrementScore = true;
+		}
+		else {
+			isIncrementScore = false;
+		}
 	}
 }
 

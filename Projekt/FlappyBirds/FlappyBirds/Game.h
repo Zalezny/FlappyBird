@@ -16,7 +16,7 @@ class Game {
 	Background background;
 	vector<Sprite> obstacles;
 	int count;
-	bool gameover;
+	bool gameover, isIncrementScore;
 	Font font;
 	Text scoreTxt, gameoverTxt;
 	int score;
