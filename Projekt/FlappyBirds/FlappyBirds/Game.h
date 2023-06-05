@@ -14,10 +14,12 @@ class Game {
 	Bird bird;
 	Obstacle bottomObstacle, topObstacle;
 	Background background;
+	vector<Sprite> obstacles;
 public:
 	Game();
 	void run();
 	void events();
 	void draw();
-
+	void moveObstacles();
+	void play();
 };

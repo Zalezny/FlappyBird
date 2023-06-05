@@ -7,9 +7,10 @@ using namespace std;
 using namespace sf;
 
 class WindowConfig {
+	
+public:
+	WindowConfig();
 	double gravity;
 	double frame;
 	double space;
-public:
-	WindowConfig();
 };

@@ -2,7 +2,7 @@
 
 
 Bird::Bird() {
-	countOfObstacles = 0;
+	points = 0;
 };
 
 void Bird::init() {
@@ -32,4 +32,19 @@ void Bird::setPosition(float x, float y) {
 
 void Bird::setScale(float x, float y) {
 	sprite->setScale(x, y);
+}
+
+void Bird::incrementPoints()
+{
+	++points;
+}
+
+int Bird::getPoints()
+{
+	return points;
+}
+
+void Bird::setPoints(int point)
+{
+	points = point;
 }

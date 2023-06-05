@@ -24,10 +24,8 @@ Game::Game() {
 
 	//set obstacles
 	bottomObstacle.setScale(1.5f, 1.5f);
-	bottomObstacle.setPosition(100, 200);
 
 	topObstacle.setScale(1.5f, -1.5f);
-	topObstacle.setPosition(100, 100);
 
 
 };
@@ -37,6 +35,7 @@ void Game::run() {
 		events();
 		draw();
 	}
+	play();
 }
 
 void Game::events() {
@@ -52,7 +51,33 @@ void Game::draw() {
 	renderWindow->clear(Color::Black);
 	renderWindow->draw(*background.getSprite());
 	renderWindow->draw(*bird.getSprite());
-	renderWindow->draw(*bottomObstacle.getSprite());
-	renderWindow->draw(*topObstacle.getSprite());
+	for (auto& o : obstacles) {
+		renderWindow->draw(o);
+	}
 	renderWindow->display();
+	bird.incrementPoints();
+}
+
+void Game::moveObstacles()
+{
+	if (bird.getPoints() % 150 == 0) {
+		int position = rand() % 275 + 175;
+		bottomObstacle.setPosition(1000, position + windowConfig.space);
+		topObstacle.setPosition(1000, position);
+
+		obstacles.push_back(*bottomObstacle.getSprite());
+		obstacles.push_back(*topObstacle.getSprite());
+	}
+
+	for (size_t i = 0; i < obstacles.size(); i++) {
+		if (obstacles[i].getPosition().x < -100) {
+			obstacles.erase(obstacles.begin() + i);
+		}
+		obstacles[i].move(-3, 0);
+	}
+}
+
+void Game::play()
+{
+	
 }

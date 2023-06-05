@@ -5,7 +5,7 @@ using namespace std;
 using namespace sf;
 
 class Bird {
-	int countOfObstacles;
+	int points;
 	shared_ptr<Sprite> sprite;
 	Texture texture;
 
@@ -16,5 +16,7 @@ public:
 	Texture getTexture();
 	void setPosition(float x, float y);
 	void setScale(float x, float y);
-
+	void incrementPoints();
+	int getPoints();
+	void setPoints(int point);
 };
