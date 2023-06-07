@@ -64,7 +64,7 @@ void Game::events() {
 		}
 	}
 
-	if (gameover && sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+	if (gameover && Keyboard::isKeyPressed(Keyboard::Space)) {
 		score = 0;
 		scoreTxt.setString(std::to_string(score));
 		obstacles.clear();
@@ -140,7 +140,7 @@ void Game::moveBird() {
 	bird.getSprite()->move(0, windowConfig.gravity);
 	windowConfig.gravity += 0.5f;
 
-	if (Mouse::isButtonPressed(Mouse::Left)) {
+	if (Mouse::isButtonPressed(Mouse::Left) || Keyboard::isKeyPressed(Keyboard::Space)) {
 		windowConfig.gravity = -4.f;
 		bird.getSprite()->setRotation(-windowConfig.frame - 10.f);
 	}
