@@ -95,13 +95,6 @@ void Game::draw() {
 
 void Game::moveObstacles()
 {
-	if (Mouse::isButtonPressed(Mouse::Left)) {
-		windowConfig.gravity = -4.f;
-		bird.getSprite()->setRotation(-windowConfig.frame - 10.f);
-	}
-	else {
-		bird.getSprite()->setRotation(windowConfig.frame - 10.f);
-	}
 
 	if (count % 150 == 0) {
 		int position = rand() % 275 + 175;
@@ -112,11 +105,7 @@ void Game::moveObstacles()
 		obstacles.push_back(*topObstacle.getSprite());
 	}
 
-	//when bird is outside the screen
-	if (bird.getSprite()->getPosition().y  < 0 || bird.getSprite()->getPosition().y > 600) {
-		gameover = true;
-	}
-
+	//check every obstacle is granted to points
 	for (size_t i = 0; i < obstacles.size(); i++) {
 		if (obstacles[i].getGlobalBounds().intersects(bird.getSprite()->getGlobalBounds())) {
 			gameover = true;
@@ -150,6 +139,19 @@ void Game::animeBird() {
 void Game::moveBird() {
 	bird.getSprite()->move(0, windowConfig.gravity);
 	windowConfig.gravity += 0.5f;
+
+	if (Mouse::isButtonPressed(Mouse::Left)) {
+		windowConfig.gravity = -4.f;
+		bird.getSprite()->setRotation(-windowConfig.frame - 10.f);
+	}
+	else {
+		bird.getSprite()->setRotation(windowConfig.frame - 10.f);
+	}
+
+	//when bird is outside the screen
+	if (bird.getSprite()->getPosition().y  < 0 || bird.getSprite()->getPosition().y > renderWindow->getSize().y) {
+		gameover = true;
+	}
 }
 
 void Game::play()
