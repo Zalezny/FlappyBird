@@ -96,7 +96,7 @@ void Game::draw() {
 void Game::moveObstacles()
 {
 	if (Mouse::isButtonPressed(Mouse::Left)) {
-		windowConfig.gravity = -8.f;
+		windowConfig.gravity = -4.f;
 		bird.getSprite()->setRotation(-windowConfig.frame - 10.f);
 	}
 	else {
@@ -110,6 +110,11 @@ void Game::moveObstacles()
 
 		obstacles.push_back(*bottomObstacle.getSprite());
 		obstacles.push_back(*topObstacle.getSprite());
+	}
+
+	//when bird is outside the screen
+	if (bird.getSprite()->getPosition().y  < 0 || bird.getSprite()->getPosition().y > 600) {
+		gameover = true;
 	}
 
 	for (size_t i = 0; i < obstacles.size(); i++) {
