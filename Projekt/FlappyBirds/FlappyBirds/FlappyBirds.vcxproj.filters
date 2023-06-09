@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Pliki źródłowe\screens">
+      <UniqueIdentifier>{9ba9e3f8-750f-4713-81e6-95e8f7d824ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\screens">
+      <UniqueIdentifier>{3c9af9d1-0f69-4dae-bc42-7f0e792df1c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\widgets">
+      <UniqueIdentifier>{f94e4b4e-8535-4658-87f3-3c5032a27997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\widgets">
+      <UniqueIdentifier>{54b199b0-28c8-4622-9f11-ec9ff7131500}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp">
@@ -33,6 +45,12 @@
     <ClCompile Include="WindowConfig.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Pliki źródłowe\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="TextButton.cpp">
+      <Filter>Pliki źródłowe\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h">
@@ -49,6 +67,12 @@
     </ClInclude>
     <ClInclude Include="WindowConfig.h">
       <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Pliki nagłówkowe\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="TextButton.h">
+      <Filter>Pliki nagłówkowe\widgets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

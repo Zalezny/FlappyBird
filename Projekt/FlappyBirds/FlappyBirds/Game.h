@@ -4,6 +4,7 @@
 #include "Obstacle.h"
 #include "Background.h"
 #include "WindowConfig.h"
+#include "TextButton.h"
 
 using namespace std;
 using namespace sf;
@@ -17,9 +18,11 @@ class Game {
 	vector<Sprite> obstacles;
 	int count;
 	bool gameover, isIncrementScore;
+	bool menu, game, scoreTable;
 	Font font;
 	Text scoreTxt, gameoverTxt;
 	int score;
+	TextButton textbtn;
 
 public:
 	Game();
@@ -30,4 +33,5 @@ public:
 	void play();
 	void animeBird();
 	void moveBird();
+	void drawMenu();
 };

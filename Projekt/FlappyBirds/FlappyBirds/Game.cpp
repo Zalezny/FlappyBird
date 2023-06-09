@@ -44,16 +44,38 @@ Game::Game() {
 	scoreTxt.setPosition(10, 10);
 	scoreTxt.setCharacterSize(50);
 	scoreTxt.setOutlineThickness(3);
+
+	//first set 
+	menu = true;
+	game = false;
+	textbtn = TextButton();
+	
+
 };
 
 void Game::run() {
 	while (renderWindow->isOpen()) {
-		events();
-		draw();
-		if(!gameover) 
-			play();
+		if (menu) {
+			drawMenu();
+			events();
+		}
+		if (game) {
+			events();
+			draw();
+			if (!gameover)
+				play();
+		}
+		
 	}
 	
+}
+
+void Game::drawMenu() {
+	renderWindow->clear(Color::Black);
+	renderWindow->draw(*background.getSprite());
+	renderWindow->draw(*textbtn.getSprite());
+	renderWindow->draw(textbtn.getText());
+	renderWindow->display();
 }
 
 void Game::events() {

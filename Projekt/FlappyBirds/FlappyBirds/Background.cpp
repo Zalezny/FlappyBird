@@ -1,12 +1,11 @@
 #include "Background.h"
 
 Background::Background() {
-	
+	sprite = make_shared<Sprite>();
 }
 
 void Background::init() {
 	texture.loadFromFile("./resources/images/background.jpg");
-	sprite = make_shared<Sprite>();
 	sprite->setTexture(texture);
 }
 

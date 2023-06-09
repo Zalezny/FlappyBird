@@ -3,11 +3,12 @@
 
 Bird::Bird() {
 	points = 0;
+	sprite = make_shared<Sprite>();
 };
 
 void Bird::init() {
 	texture.loadFromFile("./resources/images/birds.png");
-	sprite = make_shared<Sprite>();
+	
 	//basic config
 	sprite->setTexture(texture);
 	sprite->setPosition(
