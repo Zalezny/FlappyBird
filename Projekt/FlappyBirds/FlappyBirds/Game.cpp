@@ -44,6 +44,9 @@ Game::Game() {
 
 	//first set 
 	screen = ScreenEnum::MENU;
+
+	//menu btn
+	menuButton = TextButton();
 };
 
 void Game::run() {
@@ -53,6 +56,10 @@ void Game::run() {
 		switch (screen)
 		{
 		case ScreenEnum::PLAY:
+			if (reset) {
+				resetGame();
+				reset = false;
+			}
 			events();
 			draw();
 			if (!gameover)
@@ -89,16 +96,25 @@ void Game::initDraw() {
 
 void Game::events() {
 	if (gameover && Keyboard::isKeyPressed(Keyboard::Space)) {
-		score = 0;
-		scoreTxt.setString(std::to_string(score));
-		obstacles.clear();
-
-		bird.setPosition(
-			500.f - bird.getX() / 2.f,
-			300.f - bird.getY() / 2.f
-		);
-		gameover = false;
+		resetGame();
 	}
+
+	if (gameover && menuButton.isButtonClicked(renderWindow)) {
+		screen = ScreenEnum::MENU;
+		reset = true;
+	}
+}
+
+void Game::resetGame() {
+	score = 0;
+	scoreTxt.setString(std::to_string(score));
+	obstacles.clear();
+
+	bird.setPosition(
+		500.f - bird.getX() / 2.f,
+		300.f - bird.getY() / 2.f
+	);
+	gameover = false;
 }
 
 void Game::draw() {
@@ -111,6 +127,7 @@ void Game::draw() {
 
 	if (gameover) {
 		renderWindow->draw(gameoverTxt);
+		menuButton.show("Menu", Vector2f(renderWindow->getSize().x * 0.4, renderWindow->getSize().y * 0.7));
 	}
 	renderWindow->draw(scoreTxt);
 	renderWindow->display();

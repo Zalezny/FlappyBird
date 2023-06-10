@@ -22,9 +22,11 @@ class Game {
 	Font font;
 	Text scoreTxt, gameoverTxt;
 	int score;
-	TextButton textbtn;
+	TextButton menuButton;
 	ScreenEnum screen;
+	bool reset;
 	void mainEvents();
+	void resetGame();
 
 public:
 	Game();

@@ -40,10 +40,9 @@ bool TextButton::isButtonClicked(shared_ptr<RenderWindow> window)
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		sf::Vector2f mouse = window->mapPixelToCoords(sf::Mouse::getPosition(*window));
-		sf::FloatRect bounds = sprite->getGlobalBounds();
-		cout << "Mouse: " << mouse.x << " " << mouse.y << endl;
-		cout << "Bounds: " << bounds.height << " " << bounds.width << endl;
-		if (bounds.contains(mouse))
+		sf::FloatRect boundsSprite = sprite->getGlobalBounds();
+		sf::FloatRect boundsTxt = txt.getGlobalBounds();
+		if (boundsSprite.contains(mouse) || boundsTxt.contains(mouse))
 		{
 			return true;
 		}
