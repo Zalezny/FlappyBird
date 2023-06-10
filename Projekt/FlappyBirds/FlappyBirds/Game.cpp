@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "RenderWindowSingleton.h"
 
 Game::Game() {
 	bird = Bird();
@@ -13,11 +14,7 @@ Game::Game() {
 
 	//set window
 	windowConfig = WindowConfig();
-	renderWindow = std::make_shared<sf::RenderWindow>(
-		sf::VideoMode(1000, 600),
-		"FlappyBird",
-		sf::Style::Titlebar | sf::Style::Close
-		);
+	renderWindow = RenderWindowSingleton::GetInstance()->value();
 	renderWindow->setFramerateLimit(60);
 	renderWindow->setPosition(sf::Vector2i(0, 0));
 	
@@ -48,7 +45,6 @@ Game::Game() {
 	//first set 
 	menu = true;
 	game = false;
-	textbtn = TextButton();
 	
 
 };

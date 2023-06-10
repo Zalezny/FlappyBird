@@ -25,6 +25,12 @@
     <Filter Include="Pliki nagłówkowe\widgets">
       <UniqueIdentifier>{54b199b0-28c8-4622-9f11-ec9ff7131500}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\singletons">
+      <UniqueIdentifier>{e1351b5f-ea7c-415d-b4d6-66aa811f26b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\singletons">
+      <UniqueIdentifier>{1e97fbdb-87ed-4fc7-af72-2f6912efe1ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp">
@@ -51,6 +57,9 @@
     <ClCompile Include="TextButton.cpp">
       <Filter>Pliki źródłowe\widgets</Filter>
     </ClCompile>
+    <ClCompile Include="RenderWindowSingleton.cpp">
+      <Filter>Pliki źródłowe\singletons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h">
@@ -73,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="TextButton.h">
       <Filter>Pliki nagłówkowe\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderWindowSingleton.h">
+      <Filter>Pliki nagłówkowe\singletons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

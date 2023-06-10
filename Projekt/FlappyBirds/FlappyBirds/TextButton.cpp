@@ -15,7 +15,7 @@ void TextButton::show(String textBtn, Vector2f pos) {
 	txt.setFont(font);
 	txt.setString(textBtn);
 	txt.setCharacterSize(28);
-	setPosition(pos)
+	setPosition(pos);
 }
 
 void TextButton::setPosition(Vector2f pos) {
