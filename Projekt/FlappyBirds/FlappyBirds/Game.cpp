@@ -43,45 +43,51 @@ Game::Game() {
 	scoreTxt.setOutlineThickness(3);
 
 	//first set 
-	menu = true;
-	game = false;
-	
-
+	screen = ScreenEnum::MENU;
 };
 
 void Game::run() {
 	while (renderWindow->isOpen()) {
-		if (menu) {
-			drawMenu();
-			events();
-		}
-		if (game) {
+		mainEvents();
+		Menu menuScreen = Menu();
+		switch (screen)
+		{
+		case ScreenEnum::PLAY:
 			events();
 			draw();
 			if (!gameover)
 				play();
-		}
-		
+			break;
+		case ScreenEnum::MENU:
+			initDraw();
+			menuScreen.show(&screen);
+			break;
+		case ScreenEnum::SCORE:
+			break;
+		case ScreenEnum::HELP:
+			break;
+		default:
+			break;
+		}		
 	}
-	
 }
 
-void Game::drawMenu() {
-	renderWindow->clear(Color::Black);
-	renderWindow->draw(*background.getSprite());
-	renderWindow->draw(*textbtn.getSprite());
-	renderWindow->draw(textbtn.getText());
-	renderWindow->display();
-}
-
-void Game::events() {
+void Game::mainEvents() {
 	auto event = std::make_shared<sf::Event>();
 	while (renderWindow->pollEvent(*event)) {
 		if (event->type == Event::Closed) {
 			renderWindow->close();
 		}
 	}
+}
 
+void Game::initDraw() {
+	renderWindow->clear(Color::Black);
+	renderWindow->draw(*background.getSprite());
+}
+
+
+void Game::events() {
 	if (gameover && Keyboard::isKeyPressed(Keyboard::Space)) {
 		score = 0;
 		scoreTxt.setString(std::to_string(score));

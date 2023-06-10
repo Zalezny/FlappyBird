@@ -31,6 +31,9 @@
     <Filter Include="Pliki nagłówkowe\singletons">
       <UniqueIdentifier>{1e97fbdb-87ed-4fc7-af72-2f6912efe1ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\enums">
+      <UniqueIdentifier>{deb0ed75-eb8f-4b0f-9b7b-d423ec6b7469}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="RenderWindowSingleton.h">
       <Filter>Pliki nagłówkowe\singletons</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenEnum.h">
+      <Filter>Pliki nagłówkowe\enums</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
