@@ -47,15 +47,17 @@ Game::Game() {
 
 	//menu btn
 	menuButton = TextButton();
+
+	//screens
+	menuScreen = Menu();
 };
 
 void Game::run() {
 	while (renderWindow->isOpen()) {
 		mainEvents();
-		Menu menuScreen = Menu();
 		switch (screen)
 		{
-		case ScreenEnum::PLAY
+		case ScreenEnum::PLAY:
 			events();
 			draw();
 			if (!gameover)
@@ -98,7 +100,6 @@ void Game::events() {
 
 	if (gameover && menuButton.isButtonClicked(renderWindow)) {
 		screen = ScreenEnum::MENU;
-		reset = true;
 	}
 }
 
@@ -124,7 +125,7 @@ void Game::draw() {
 
 	if (gameover) {
 		renderWindow->draw(gameoverTxt);
-		menuButton.show("Menu", Vector2f(renderWindow->getSize().x * 0.4, renderWindow->getSize().y * 0.7));
+		menuButton.show("Menu", Vector2f(renderWindow->getSize().x * 0.4, renderWindow->getSize().y * 0.6));
 	}
 	renderWindow->draw(scoreTxt);
 	renderWindow->display();
