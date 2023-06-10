@@ -55,11 +55,7 @@ void Game::run() {
 		Menu menuScreen = Menu();
 		switch (screen)
 		{
-		case ScreenEnum::PLAY:
-			if (reset) {
-				resetGame();
-				reset = false;
-			}
+		case ScreenEnum::PLAY
 			events();
 			draw();
 			if (!gameover)
@@ -89,6 +85,7 @@ void Game::mainEvents() {
 }
 
 void Game::initDraw() {
+	resetGame();
 	renderWindow->clear(Color::Black);
 	renderWindow->draw(*background.getSprite());
 }

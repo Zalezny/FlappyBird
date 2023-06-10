@@ -24,7 +24,6 @@ class Game {
 	int score;
 	TextButton menuButton;
 	ScreenEnum screen;
-	bool reset;
 	void mainEvents();
 	void resetGame();
 
