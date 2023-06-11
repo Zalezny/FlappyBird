@@ -1,6 +1,6 @@
-#include "Menu.h"
+#include "MenuScreen.h"
 
-Menu::Menu()
+MenuScreen::MenuScreen()
 {
 	menuButton = TextButton();
 	playButton = TextButton();
@@ -9,12 +9,12 @@ Menu::Menu()
 	renderWindow = RenderWindowSingleton::GetInstance()->value();
 }
 
-void Menu::show(ScreenEnum* screen) {
+void MenuScreen::show(ScreenEnum* screen) {
 	initView();
 	events(screen);
 }
 
-void Menu::initView()
+void MenuScreen::initView()
 {
 	playButton.show("Play", Vector2f(renderWindow->getSize().x * 0.4, renderWindow->getSize().y * 0.7));
 	scoreButton.show("Score", Vector2f(renderWindow->getSize().x * 0.5, renderWindow->getSize().y * 0.5));
@@ -22,7 +22,7 @@ void Menu::initView()
 	renderWindow->display();
 }
 
-void Menu::events(ScreenEnum* screen) {
+void MenuScreen::events(ScreenEnum* screen) {
 	if (playButton.isButtonClicked(renderWindow)) { *screen = ScreenEnum::PLAY; }
 	if (scoreButton.isButtonClicked(renderWindow)) { *screen = ScreenEnum::SCORE; }
 	if (helperButton.isButtonClicked(renderWindow)) { *screen = ScreenEnum::HELP; }

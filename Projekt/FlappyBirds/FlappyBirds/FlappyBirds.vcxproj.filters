@@ -54,7 +54,7 @@
     <ClCompile Include="WindowConfig.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
+    <ClCompile Include="MenuScreen.cpp">
       <Filter>Pliki źródłowe\screens</Filter>
     </ClCompile>
     <ClCompile Include="TextButton.cpp">
@@ -62,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="RenderWindowSingleton.cpp">
       <Filter>Pliki źródłowe\singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreScreen.cpp">
+      <Filter>Pliki źródłowe\screens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,7 +83,7 @@
     <ClInclude Include="WindowConfig.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
+    <ClInclude Include="MenuScreen.h">
       <Filter>Pliki nagłówkowe\screens</Filter>
     </ClInclude>
     <ClInclude Include="TextButton.h">

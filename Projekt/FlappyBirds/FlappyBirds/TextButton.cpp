@@ -42,6 +42,9 @@ bool TextButton::isButtonClicked(shared_ptr<RenderWindow> window)
 		sf::Vector2f mouse = window->mapPixelToCoords(sf::Mouse::getPosition(*window));
 		sf::FloatRect boundsSprite = sprite->getGlobalBounds();
 		sf::FloatRect boundsTxt = txt.getGlobalBounds();
+		cout << boundsSprite.height << " " << boundsSprite.width << endl;
+		cout << mouse.x << " " << mouse.y << endl;
+		cout << boundsSprite.contains(mouse) << endl;
 		if (boundsSprite.contains(mouse) || boundsTxt.contains(mouse))
 		{
 			return true;

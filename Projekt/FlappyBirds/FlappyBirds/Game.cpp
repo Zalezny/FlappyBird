@@ -49,7 +49,7 @@ Game::Game() {
 	menuButton = TextButton();
 
 	//screens
-	menuScreen = Menu();
+	menuScreen = MenuScreen();
 };
 
 void Game::run() {
@@ -68,6 +68,7 @@ void Game::run() {
 			menuScreen.show(&screen);
 			break;
 		case ScreenEnum::SCORE:
+			
 			break;
 		case ScreenEnum::HELP:
 			break;

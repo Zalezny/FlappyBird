@@ -8,7 +8,7 @@
 using namespace std;
 using namespace sf;
 
-class Menu {
+class MenuScreen {
 	shared_ptr<RenderWindow> renderWindow;
 	TextButton menuButton;
 	TextButton playButton;
@@ -17,7 +17,7 @@ class Menu {
 	void events(ScreenEnum* screen);
 	void initView();
 public:
-	Menu();
+	MenuScreen();
 	void show(ScreenEnum* screen);
 	
 
