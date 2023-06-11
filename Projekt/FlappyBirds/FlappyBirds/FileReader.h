@@ -8,8 +8,8 @@ using namespace std;
 
 class FileReader {
 	filesystem::path filePath;
-	void writeFile();
-	vector<int> readFile();
 public:
 	FileReader();
+	void writeFile(vector<int> scores);
+	vector<int> readFile();
 };

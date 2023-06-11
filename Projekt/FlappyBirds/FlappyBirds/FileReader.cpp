@@ -5,10 +5,9 @@ FileReader::FileReader() {
 	filePath = "scores.txt";
 }
 
-void FileReader::writeFile() {
+void FileReader::writeFile(vector<int> scores) {
 	ofstream outputFile(filePath);
-	vector<int> daneDoZapisu = { 1,2,3,4,5 };
-	ranges::for_each(daneDoZapisu, [&](int element) {
+	ranges::for_each(scores, [&](int element) {
 		outputFile << element << "\n";
 		});
 	outputFile.close();
