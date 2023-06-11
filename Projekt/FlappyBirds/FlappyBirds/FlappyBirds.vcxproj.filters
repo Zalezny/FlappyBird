@@ -34,6 +34,12 @@
     <Filter Include="Pliki nagłówkowe\enums">
       <UniqueIdentifier>{deb0ed75-eb8f-4b0f-9b7b-d423ec6b7469}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\services">
+      <UniqueIdentifier>{3d7d2e9e-7267-44e1-9f5e-95c7b4faa131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\services">
+      <UniqueIdentifier>{1c2fc679-0bcf-4a4a-b89d-8fde465cc558}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp">
@@ -66,6 +72,9 @@
     <ClCompile Include="ScoreScreen.cpp">
       <Filter>Pliki źródłowe\screens</Filter>
     </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Pliki źródłowe\services</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h">
@@ -94,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="ScreenEnum.h">
       <Filter>Pliki nagłówkowe\enums</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreScreen.h">
+      <Filter>Pliki nagłówkowe\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Pliki nagłówkowe\services</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
