@@ -40,6 +40,9 @@
     <Filter Include="Pliki nagłówkowe\services">
       <UniqueIdentifier>{1c2fc679-0bcf-4a4a-b89d-8fde465cc558}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\entities">
+      <UniqueIdentifier>{37f9836d-9895-4467-898e-6d822c7bb466}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="FileReader.h">
       <Filter>Pliki nagłówkowe\services</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreEntity.h">
+      <Filter>Pliki nagłówkowe\entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
