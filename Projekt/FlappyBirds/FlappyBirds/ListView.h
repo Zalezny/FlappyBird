@@ -5,6 +5,8 @@
 #include <string>
 #include "ScoreEntity.h"
 #include "RenderWindowSingleton.h"
+#include <sstream>
+#include "Positions.h"
 
 using namespace std;
 using namespace sf;

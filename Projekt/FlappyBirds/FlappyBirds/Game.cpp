@@ -42,8 +42,8 @@ Game::Game() {
 	scoreTxt.setCharacterSize(50);
 	scoreTxt.setOutlineThickness(3);
 
-	//first set 
-	screen = ScreenEnum::MENU;
+	//first set screen (it's useful for debugging)
+	screen = ScreenEnum::SCORE;
 
 	//menu btn
 	menuButton = TextButton();

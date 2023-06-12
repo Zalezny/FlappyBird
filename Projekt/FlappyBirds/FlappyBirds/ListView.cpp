@@ -7,24 +7,29 @@ ListView::ListView(vector<ScoreEntity>& scoresArray) : scores(scoresArray)
 	font = make_shared<Font>();
 	font->loadFromFile("./resources/fonts/flappy_bird_font.ttf");
 	listItemText->setFont(*font);
-	listItemText->setCharacterSize(18);
+	listItemText->setCharacterSize(28);
 }
 
 void ListView::show() {
+	float x = renderWindow->getSize().x * 0.4;
 
 	if (scores.empty()) {
-		//TODO: Poka¿ tekst ¿e jest pusta
+		string emptyInfoString = "Sorry, but you do not play anything yet :-(";
+		listItemText->setString(emptyInfoString);
+		listItemText->setPosition(Positions::getCenter(listItemText->getGlobalBounds()));
+		renderWindow->draw(*listItemText);
+
 		return;
 	}
 
 	for (int i = 0; i < scores.size(); i++) {
-		string text = i + ". " + scores[i].score + scores[i].date;
-		float x = renderWindow->getSize().x * 0.2;
+		ostringstream textOSS;
+		textOSS << i+1 << ".    " << scores[i].score << "    " << scores[i].date;
 		float y = renderWindow->getSize().y * spaceBetweenItem;
 		Vector2f pos = Vector2f(x, y);
-		listItemText->setString(text);
+		listItemText->setString(textOSS.str());
 		listItemText->setPosition(pos);
 		renderWindow->draw(*listItemText);
-		spaceBetweenItem += listItemText->getGlobalBounds().height;
+		spaceBetweenItem += 0.05;
 	}
 }

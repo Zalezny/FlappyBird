@@ -157,6 +157,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
     <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="Positions.cpp" />
     <ClCompile Include="RenderWindowSingleton.cpp" />
     <ClCompile Include="ScoreScreen.cpp" />
     <ClCompile Include="TextButton.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="ListView.h" />
     <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="Positions.h" />
     <ClInclude Include="RenderWindowSingleton.h" />
     <ClInclude Include="ScoreScreen.h" />
     <ClInclude Include="ScoreEntity.h" />
