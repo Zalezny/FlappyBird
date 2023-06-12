@@ -78,6 +78,9 @@
     <ClCompile Include="FileReader.cpp">
       <Filter>Pliki źródłowe\services</Filter>
     </ClCompile>
+    <ClCompile Include="ListView.cpp">
+      <Filter>Pliki źródłowe\widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="ScoreEntity.h">
       <Filter>Pliki nagłówkowe\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ListView.h">
+      <Filter>Pliki nagłówkowe\widgets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

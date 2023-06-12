@@ -50,6 +50,7 @@ Game::Game() {
 
 	//screens
 	menuScreen = MenuScreen();
+	scoreScreen = ScoreScreen();
 };
 
 void Game::run() {
@@ -68,13 +69,14 @@ void Game::run() {
 			menuScreen.show(&screen);
 			break;
 		case ScreenEnum::SCORE:
-			
+			initDraw();
+			scoreScreen.show(&screen);
 			break;
 		case ScreenEnum::HELP:
 			break;
 		default:
 			break;
-		}		
+		}
 	}
 }
 

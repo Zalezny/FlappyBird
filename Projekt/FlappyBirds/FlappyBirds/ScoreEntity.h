@@ -1,4 +1,4 @@
-#pragma oncew
+#pragma once
 
 #include <iostream>
 

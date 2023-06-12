@@ -6,6 +6,7 @@
 #include "WindowConfig.h"
 #include "TextButton.h"
 #include "MenuScreen.h"
+#include "ScoreScreen.h"
 
 using namespace std;
 using namespace sf;
@@ -25,6 +26,7 @@ class Game {
 	TextButton menuButton;
 	ScreenEnum screen;
 	MenuScreen menuScreen;
+	ScoreScreen scoreScreen;
 	void mainEvents();
 	void resetGame();
 
