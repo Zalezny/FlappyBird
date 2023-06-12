@@ -18,9 +18,14 @@ void ListView::show() {
 		listItemText->setString(emptyInfoString);
 		listItemText->setPosition(Positions::getCenter(listItemText->getGlobalBounds()));
 		renderWindow->draw(*listItemText);
-
 		return;
 	}
+
+	listItemText->setString("TOP 10");
+	Vector2f posTop = Positions::getCenter(listItemText->getGlobalBounds(), 0.01);
+	listItemText->setPosition(posTop);
+	spaceBetweenItem += 0.05;
+	renderWindow->draw(*listItemText);
 
 	for (int i = 0; i < scores.size(); i++) {
 		ostringstream textOSS;

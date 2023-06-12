@@ -43,7 +43,7 @@ Game::Game() {
 	scoreTxt.setOutlineThickness(3);
 
 	//first set screen (it's useful for debugging)
-	screen = ScreenEnum::SCORE;
+	screen = ScreenEnum::MENU;
 
 	//menu btn
 	menuButton = TextButton();
@@ -55,27 +55,29 @@ Game::Game() {
 
 void Game::run() {
 	while (renderWindow->isOpen()) {
-		mainEvents();
-		switch (screen)
-		{
-		case ScreenEnum::PLAY:
-			events();
-			draw();
-			if (!gameover)
-				play();
-			break;
-		case ScreenEnum::MENU:
-			initDraw();
-			menuScreen.show(&screen);
-			break;
-		case ScreenEnum::SCORE:
-			initDraw();
-			scoreScreen.show(&screen);
-			break;
-		case ScreenEnum::HELP:
-			break;
-		default:
-			break;
+		if (renderWindow->hasFocus()) {
+			mainEvents();
+			switch (screen)
+			{
+			case ScreenEnum::PLAY:
+				events();
+				draw();
+				if (!gameover)
+					play();
+				break;
+			case ScreenEnum::MENU:
+				initDraw();
+				menuScreen.show(&screen);
+				break;
+			case ScreenEnum::SCORE:
+				initDraw();
+				scoreScreen.show(&screen);
+				break;
+			case ScreenEnum::HELP:
+				break;
+			default:
+				break;
+			}
 		}
 	}
 }
