@@ -14,7 +14,7 @@ void ListView::show() {
 	float x = renderWindow->getSize().x * 0.4;
 
 	if (scores.empty()) {
-		string emptyInfoString = "Sorry, but you do not play anything yet :-(";
+		string emptyInfoString = "Sorry, but you have not played anything yet :-(";
 		listItemText->setString(emptyInfoString);
 		listItemText->setPosition(Positions::getCenter(listItemText->getGlobalBounds()));
 		renderWindow->draw(*listItemText);
