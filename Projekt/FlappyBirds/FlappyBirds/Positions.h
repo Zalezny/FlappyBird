@@ -7,5 +7,5 @@ using namespace sf;
 
 class Positions {
 public:
-	static Vector2f getCenter(FloatRect bounds);
+	static Vector2f getCenter(FloatRect bounds, float posY = 0.5, float posX = 0.5);
 };

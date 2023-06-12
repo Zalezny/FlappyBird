@@ -16,7 +16,7 @@ using namespace sf;
 class ScoreScreen {
 	vector<ScoreEntity> scores;
 	shared_ptr<RenderWindow> renderWindow;
-	TextButton menuButton;
+	shared_ptr<TextButton> menuButton;
 	ListView listView;
 	void events(ScreenEnum* screen);
 	void createView();
