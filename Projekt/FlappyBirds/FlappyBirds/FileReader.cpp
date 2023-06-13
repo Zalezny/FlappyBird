@@ -7,7 +7,7 @@ FileReader::FileReader() {
 
 void FileReader::writeFile(vector<ScoreEntity> scores) {
 
-	ofstream outputFile(filePath);
+	ofstream outputFile(filePath, ios::app);
 	ranges::for_each(scores, [&](ScoreEntity element) {
 		outputFile << element << "\n";
 		});
@@ -17,7 +17,7 @@ void FileReader::writeFile(vector<ScoreEntity> scores) {
 void FileReader::writeScore(ScoreEntity score)
 {
 
-	ofstream outputFile(filePath);
+	ofstream outputFile(filePath, ios::app);
 	outputFile << score << "\n";
 	outputFile.close();
 }
@@ -38,19 +38,26 @@ vector<ScoreEntity> FileReader::readFile() {
 			}
 
 			inputFile.close();
-
-			// sortowanie od najwiêkszego do najmniejszego
-			ranges::sort(scores, [](const ScoreEntity& obj1, const ScoreEntity& obj2) {
-				return obj1.score > obj2.score;
-				});
-
 		}
 		else {
 			cout << "Otwieranie pliku sie nie powiodlo" << endl;
 		}
 	}
-	return scores;
+	return *cleanList(&scores);
 }
 
+vector<ScoreEntity>* FileReader::cleanList(vector<ScoreEntity>* scores) {
+	// sortowanie od najwiêkszego do najmniejszego
+	ranges::sort(*scores, [](const ScoreEntity& obj1, const ScoreEntity& obj2) {
+		return obj1.score > obj2.score;
+	});
+
+	//usuniêcie pozycji powy¿ej 10 w vektorze
+	if (scores->size() > 10) {
+		scores->erase(scores->begin() + 10, scores->end());
+	}
+
+	return scores;
+}
 
 

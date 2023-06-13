@@ -10,6 +10,7 @@ using namespace std;
 
 class FileReader {
 	filesystem::path filePath;
+	vector<ScoreEntity>* cleanList(vector<ScoreEntity>* scores);
 public:
 	FileReader();
 	void writeFile(vector<ScoreEntity> scores);
