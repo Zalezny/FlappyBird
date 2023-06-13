@@ -20,6 +20,7 @@ void ScoreScreen::show(ScreenEnum* screen)
 
 void ScoreScreen::events(ScreenEnum* screen)
 {
+	if (menuButton->isButtonClicked(renderWindow)) { *screen = ScreenEnum::MENU; }
 }
 
 void ScoreScreen::createView()
