@@ -5,15 +5,6 @@ FileReader::FileReader() {
 	filePath = "scores.txt";
 }
 
-void FileReader::writeFile(vector<ScoreEntity> scores) {
-
-	ofstream outputFile(filePath, ios::app);
-	ranges::for_each(scores, [&](ScoreEntity element) {
-		outputFile << element << "\n";
-		});
-	outputFile.close();
-}
-
 void FileReader::writeScore(ScoreEntity score)
 {
 

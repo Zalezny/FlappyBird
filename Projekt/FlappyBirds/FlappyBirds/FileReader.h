@@ -13,7 +13,6 @@ class FileReader {
 	vector<ScoreEntity>* cleanList(vector<ScoreEntity>* scores);
 public:
 	FileReader();
-	void writeFile(vector<ScoreEntity> scores);
 	void writeScore(ScoreEntity score);
 	vector<ScoreEntity> readFile();
 };
