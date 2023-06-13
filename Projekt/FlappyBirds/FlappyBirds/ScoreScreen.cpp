@@ -5,13 +5,15 @@
 ScoreScreen::ScoreScreen()
 {
 	renderWindow = RenderWindowSingleton::GetInstance()->value();
-	menuButton = make_shared<TextButton>();
+	backButton = make_shared<TextButton>();
+	clearButton = make_shared<TextButton>();
+	service = make_shared<FileReader>();
 }
 
 void ScoreScreen::show(ScreenEnum* screen)
 {
-	FileReader service = FileReader();
-	scores = service.readFile();
+	
+	scores = service->readFile();
 	listView = ListView(scores);
 
 	createView();
@@ -20,12 +22,17 @@ void ScoreScreen::show(ScreenEnum* screen)
 
 void ScoreScreen::events(ScreenEnum* screen)
 {
-	if (menuButton->isButtonClicked(renderWindow)) { *screen = ScreenEnum::MENU; }
+	if (backButton->isButtonClicked(renderWindow)) { *screen = ScreenEnum::MENU; }
+	if (clearButton->isButtonClicked(renderWindow)) {
+		service->removeFile();
+		scores.clear();
+	}
 }
 
 void ScoreScreen::createView()
 {
-	menuButton->show("MENU", Positions::getCenter(menuButton->getSprite()->getGlobalBounds(), 0.95f));
+	backButton->show("MENU", Positions::getCenter(backButton->getSprite()->getGlobalBounds(), 0.95f, 0.7f));
+	clearButton->show("CLEAR", Positions::getCenter(clearButton->getSprite()->getGlobalBounds(), 0.95f, 0.3f));
 
 	listView.show();
 	renderWindow->display();

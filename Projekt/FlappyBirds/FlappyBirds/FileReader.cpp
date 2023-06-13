@@ -51,4 +51,13 @@ vector<ScoreEntity>* FileReader::cleanList(vector<ScoreEntity>* scores) {
 	return scores;
 }
 
+void FileReader::removeFile() {
+	try {
+		filesystem::remove(filePath);
+	}
+	catch (const filesystem::filesystem_error& ex) {
+		std::cout << "B³¹d usuwania pliku: " << ex.what() << std::endl;
+	}
+}
+
 
