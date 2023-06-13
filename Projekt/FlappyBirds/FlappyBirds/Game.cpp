@@ -120,6 +120,8 @@ void Game::resetGame() {
 	gameover = false;
 }
 
+
+
 void Game::draw() {
 	renderWindow->clear(Color::Black);
 	renderWindow->draw(*background.getSprite());
@@ -153,6 +155,7 @@ void Game::moveObstacles()
 	for (size_t i = 0; i < obstacles.size(); i++) {
 		if (obstacles[i].getGlobalBounds().intersects(bird.getSprite()->getGlobalBounds())) {
 			gameover = true;
+			writeScore();
 		}
 
 		if (obstacles[i].getPosition().x < -100) {
@@ -195,6 +198,7 @@ void Game::moveBird() {
 	//when bird is outside the screen
 	if (bird.getSprite()->getPosition().y  < 0 || bird.getSprite()->getPosition().y > renderWindow->getSize().y) {
 		gameover = true;
+		writeScore();
 	}
 }
 
@@ -203,4 +207,21 @@ void Game::play()
 	animeBird();
 	moveBird();
 	moveObstacles();
+}
+
+void Game::writeScore()
+{
+	auto now = std::chrono::system_clock::now();
+	std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
+
+	tm localTime;
+	localtime_s(&localTime, &currentTime);
+
+	ostringstream oss;
+	oss << put_time(&localTime, "%H:%M %d-%m-%Y");
+
+	string formattedDateTime = oss.str();
+
+	ScoreEntity scoreEntity = ScoreEntity(score, formattedDateTime);
+	FileReader().writeScore(scoreEntity);
 }

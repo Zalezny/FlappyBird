@@ -1,5 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <chrono>
+#include <iomanip>
+#include <sstream>
+
 #include "Bird.h"
 #include "Obstacle.h"
 #include "Background.h"
@@ -29,6 +33,7 @@ class Game {
 	ScoreScreen scoreScreen;
 	void mainEvents();
 	void resetGame();
+	void writeScore();
 
 public:
 	Game();
