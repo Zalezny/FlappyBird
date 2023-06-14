@@ -20,4 +20,12 @@ bool BetterPresser::handleClickKey(Keyboard::Key key) {
 	return false;
 }
 
-
+bool BetterPresser::handleClickMouse(Mouse::Button mouseBtn) {
+	if (Mouse::isButtonPressed(mouseBtn) && !isButtonClicked) {
+		isButtonClicked = true;
+		threadHandler = std::thread(&BetterPresser::handler, this);
+		threadHandler.detach();
+		return true;
+	}
+	return false;
+}

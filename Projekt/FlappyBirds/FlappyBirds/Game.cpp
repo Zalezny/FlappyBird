@@ -59,6 +59,9 @@ Game::Game() {
 	//screens
 	menuScreen = MenuScreen();
 	scoreScreen = ScoreScreen();
+
+	//presser
+	pausePresser = BetterPresser();
 	
 };
 

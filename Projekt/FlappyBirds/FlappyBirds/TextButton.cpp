@@ -2,6 +2,7 @@
 TextButton::TextButton() {
 	sprite = make_shared<Sprite>();
 	txt = Text();
+	handlePresser = BetterPresser();
 }
 
 
@@ -38,7 +39,7 @@ void TextButton::draw() {
 
 bool TextButton::isButtonClicked(shared_ptr<RenderWindow> window)
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (handlePresser.handleClickMouse(Mouse::Left))
 	{
 		sf::Vector2f mouse = window->mapPixelToCoords(sf::Mouse::getPosition(*window));
 		sf::FloatRect boundsSprite = sprite->getGlobalBounds();

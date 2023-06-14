@@ -32,7 +32,7 @@ class Game {
 	ScreenEnum screen;
 	MenuScreen menuScreen;
 	ScoreScreen scoreScreen;
-	BetterPresser pausePresser = BetterPresser();
+	BetterPresser pausePresser;
 	void mainEvents();
 	void resetGame();
 	void writeScore();

@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "RenderWindowSingleton.h"
+#include "BetterPresser.h"
 
 using namespace std;
 using namespace sf;
@@ -11,6 +12,7 @@ class TextButton {
 	Texture texture;
 	Font font;
 	Text txt;
+	BetterPresser handlePresser;
 	double x, y;
 	void setPosition(Vector2f pos);
 	void draw();
