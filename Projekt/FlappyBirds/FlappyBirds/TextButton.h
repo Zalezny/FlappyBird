@@ -19,7 +19,7 @@ public:
 	TextButton();
 	inline shared_ptr<Sprite> getSprite() { return sprite; };
 	inline Text getText() { return txt; }
-	void show(String textBtn, Vector2f pos);
+	void show(String textBtn, Vector2f pos, bool isSprite = true);
 	bool isButtonClicked(shared_ptr<RenderWindow> window);
 };
 

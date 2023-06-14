@@ -22,7 +22,6 @@ class ScoreScreen {
 	ListView listView;
 	void events(ScreenEnum* screen);
 	void createView();
-	void getData();
 public:
 	ScoreScreen();
 	void show(ScreenEnum* screen);

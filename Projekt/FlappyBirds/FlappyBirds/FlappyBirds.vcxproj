@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BetterPresser.cpp" />
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -165,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
+    <ClInclude Include="BetterPresser.h" />
     <ClInclude Include="Bird.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="Game.h" />

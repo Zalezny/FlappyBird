@@ -24,6 +24,7 @@ Game::Game() {
 
 	gameover = false;
 	isIncrementScore = false;
+	pause = false;
 
 	//font
 	font.loadFromFile("./resources/fonts/flappy_bird_font.ttf");
@@ -42,6 +43,13 @@ Game::Game() {
 	scoreTxt.setCharacterSize(50);
 	scoreTxt.setOutlineThickness(3);
 
+	//pause text
+	pauseTxt.setFont(font);
+	pauseTxt.setString("||");
+	pauseTxt.setPosition(Positions::getTopRight(pauseTxt.getGlobalBounds(), 10));
+	pauseTxt.setCharacterSize(50);
+	pauseTxt.setOutlineThickness(1);
+
 	//first set screen (it's useful for debugging)
 	screen = ScreenEnum::MENU;
 
@@ -51,6 +59,7 @@ Game::Game() {
 	//screens
 	menuScreen = MenuScreen();
 	scoreScreen = ScoreScreen();
+	
 };
 
 void Game::run() {
@@ -62,7 +71,7 @@ void Game::run() {
 			case ScreenEnum::PLAY:
 				events();
 				draw();
-				if (!gameover)
+				if (!gameover && !pause)
 					play();
 				break;
 			case ScreenEnum::MENU:
@@ -106,6 +115,10 @@ void Game::events() {
 	if (gameover && menuButton.isButtonClicked(renderWindow)) {
 		screen = ScreenEnum::MENU;
 	}
+
+	if (pausePresser.handleClickKey(Keyboard::P)) {
+		pause = !pause;
+	}
 }
 
 void Game::resetGame() {
@@ -134,7 +147,14 @@ void Game::draw() {
 		renderWindow->draw(gameoverTxt);
 		menuButton.show("Menu", Vector2f(renderWindow->getSize().x * 0.4, renderWindow->getSize().y * 0.6));
 	}
+	if (pause) {
+		pauseTxt.setString("<");
+	}
+	else {
+		pauseTxt.setString("||");
+	}
 	renderWindow->draw(scoreTxt);
+	renderWindow->draw(pauseTxt);
 	renderWindow->display();
 	++count;
 }

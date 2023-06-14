@@ -5,13 +5,14 @@ TextButton::TextButton() {
 }
 
 
-void TextButton::show(String textBtn, Vector2f pos) {
-	texture.loadFromFile("./resources/images/buttonClick.png");
-	sprite->setTexture(texture);
-	sprite = make_shared<Sprite>();
+void TextButton::show(String textBtn, Vector2f pos, bool isSprite) {
+	if (isSprite) {
+		texture.loadFromFile("./resources/images/buttonClick.png");
+		sprite->setTexture(texture);
+		sprite->setScale(0.05f, 0.05f);
+	}
+	
 	font.loadFromFile("./resources/fonts/flappy_bird_font.ttf");
-	sprite->setTexture(texture);
-	sprite->setScale(0.05f, 0.05f);
 	txt.setFont(font);
 	txt.setString(textBtn);
 	txt.setCharacterSize(28);

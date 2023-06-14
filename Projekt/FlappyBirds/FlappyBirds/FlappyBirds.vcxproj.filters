@@ -49,6 +49,12 @@
     <Filter Include="Pliki źródłowe\configs">
       <UniqueIdentifier>{f2c21dd6-7a0d-49b6-b44e-7d97a9733ccc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\utils">
+      <UniqueIdentifier>{45c84366-1755-4b29-89a8-aff4693fd8b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\utils">
+      <UniqueIdentifier>{e05bd260-f8cf-4763-ac22-e9c80d24fb3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp">
@@ -89,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Positions.cpp">
       <Filter>Pliki źródłowe\configs</Filter>
+    </ClCompile>
+    <ClCompile Include="BetterPresser.cpp">
+      <Filter>Pliki źródłowe\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="Positions.h">
       <Filter>Pliki nagłówkowe\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="BetterPresser.h">
+      <Filter>Pliki nagłówkowe\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@
 #include "TextButton.h"
 #include "MenuScreen.h"
 #include "ScoreScreen.h"
+#include "BetterPresser.h"
 
 using namespace std;
 using namespace sf;
@@ -23,14 +24,15 @@ class Game {
 	Background background;
 	vector<Sprite> obstacles;
 	int count;
-	bool gameover, isIncrementScore;
+	bool gameover, isIncrementScore, pause;
 	Font font;
-	Text scoreTxt, gameoverTxt;
+	Text scoreTxt, gameoverTxt, pauseTxt;
 	int score;
 	TextButton menuButton;
 	ScreenEnum screen;
 	MenuScreen menuScreen;
 	ScoreScreen scoreScreen;
+	BetterPresser pausePresser = BetterPresser();
 	void mainEvents();
 	void resetGame();
 	void writeScore();
