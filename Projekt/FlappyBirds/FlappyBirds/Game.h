@@ -11,7 +11,9 @@
 #include "TextButton.h"
 #include "MenuScreen.h"
 #include "ScoreScreen.h"
+#include "HelpScreen.h"
 #include "BetterPresser.h"
+#include "Screen.h"
 
 using namespace std;
 using namespace sf;
@@ -30,9 +32,12 @@ class Game {
 	int score;
 	TextButton menuButton;
 	ScreenEnum screen;
-	MenuScreen menuScreen;
-	ScoreScreen scoreScreen;
+	Screen* menuScreen;
+	Screen* scoreScreen;
+	Screen* helpScreen;
+
 	BetterPresser pausePresser;
+	shared_ptr<Event> event;
 	void mainEvents();
 	void resetGame();
 	void writeScore();

@@ -154,6 +154,7 @@
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HelpScreen.cpp" />
     <ClCompile Include="ListView.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Bird.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="ListView.h" />
     <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="Obstacle.h" />
@@ -177,6 +179,7 @@
     <ClInclude Include="RenderWindowSingleton.h" />
     <ClInclude Include="ScoreScreen.h" />
     <ClInclude Include="ScoreEntity.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenEnum.h" />
     <ClInclude Include="TextButton.h" />
     <ClInclude Include="WindowConfig.h" />

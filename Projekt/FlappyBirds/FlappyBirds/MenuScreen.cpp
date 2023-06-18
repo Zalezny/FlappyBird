@@ -10,11 +10,11 @@ MenuScreen::MenuScreen()
 }
 
 void MenuScreen::show(ScreenEnum* screen) {
-	initView();
+	createView();
 	events(screen);
 }
 
-void MenuScreen::initView()
+void MenuScreen::createView()
 {
 	playButton.show("Play", Vector2f(renderWindow->getSize().x * 0.4, renderWindow->getSize().y * 0.7));
 	scoreButton.show("Score", Vector2f(renderWindow->getSize().x * 0.5, renderWindow->getSize().y * 0.5));

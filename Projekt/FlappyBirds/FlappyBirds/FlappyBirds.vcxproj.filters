@@ -99,6 +99,9 @@
     <ClCompile Include="BetterPresser.cpp">
       <Filter>Pliki źródłowe\utils</Filter>
     </ClCompile>
+    <ClCompile Include="HelpScreen.cpp">
+      <Filter>Pliki źródłowe\screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h">
@@ -145,6 +148,12 @@
     </ClInclude>
     <ClInclude Include="BetterPresser.h">
       <Filter>Pliki nagłówkowe\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScreen.h">
+      <Filter>Pliki nagłówkowe\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Pliki nagłówkowe\screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

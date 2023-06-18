@@ -57,11 +57,14 @@ Game::Game() {
 	menuButton = TextButton();
 
 	//screens
-	menuScreen = MenuScreen();
-	scoreScreen = ScoreScreen();
+	menuScreen = new MenuScreen();
+	scoreScreen = new ScoreScreen();
+	helpScreen = new HelpScreen();
 
 	//presser
 	pausePresser = BetterPresser();
+
+	event = std::make_shared<sf::Event>();
 	
 };
 
@@ -79,13 +82,15 @@ void Game::run() {
 				break;
 			case ScreenEnum::MENU:
 				initDraw();
-				menuScreen.show(&screen);
+				menuScreen->show(&screen);
 				break;
 			case ScreenEnum::SCORE:
 				initDraw();
-				scoreScreen.show(&screen);
+				scoreScreen->show(&screen);
 				break;
 			case ScreenEnum::HELP:
+				initDraw();
+
 				break;
 			default:
 				break;
@@ -95,10 +100,12 @@ void Game::run() {
 }
 
 void Game::mainEvents() {
-	auto event = std::make_shared<sf::Event>();
 	while (renderWindow->pollEvent(*event)) {
 		if (event->type == Event::Closed) {
 			renderWindow->close();
+			delete menuScreen;
+			delete scoreScreen;
+			delete helpScreen;
 		}
 	}
 }
