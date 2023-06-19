@@ -14,6 +14,7 @@ class HelpScreen : public Screen {
 	shared_ptr <Text> gameHelpTxt;
 	shared_ptr <TextButton> menuButton;
 	shared_ptr<RenderWindow> renderWindow;
+	shared_ptr<Font> font;
 	void events(ScreenEnum* screen);
 	void createView();
 public:

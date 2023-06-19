@@ -57,9 +57,9 @@ Game::Game() {
 	menuButton = TextButton();
 
 	//screens
-	menuScreen = new MenuScreen();
-	scoreScreen = new ScoreScreen();
-	helpScreen = new HelpScreen();
+	menuScreen = make_shared<MenuScreen>();
+	scoreScreen = make_shared<ScoreScreen>();
+	helpScreen = make_shared<HelpScreen>();
 
 	//presser
 	pausePresser = BetterPresser();
@@ -90,7 +90,7 @@ void Game::run() {
 				break;
 			case ScreenEnum::HELP:
 				initDraw();
-
+				helpScreen->show(&screen);
 				break;
 			default:
 				break;
@@ -103,9 +103,6 @@ void Game::mainEvents() {
 	while (renderWindow->pollEvent(*event)) {
 		if (event->type == Event::Closed) {
 			renderWindow->close();
-			delete menuScreen;
-			delete scoreScreen;
-			delete helpScreen;
 		}
 	}
 }

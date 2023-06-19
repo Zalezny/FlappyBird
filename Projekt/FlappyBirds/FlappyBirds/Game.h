@@ -32,9 +32,9 @@ class Game {
 	int score;
 	TextButton menuButton;
 	ScreenEnum screen;
-	Screen* menuScreen;
-	Screen* scoreScreen;
-	Screen* helpScreen;
+	shared_ptr<Screen> menuScreen;
+	shared_ptr<Screen> scoreScreen;
+	shared_ptr<Screen> helpScreen;
 
 	BetterPresser pausePresser;
 	shared_ptr<Event> event;
