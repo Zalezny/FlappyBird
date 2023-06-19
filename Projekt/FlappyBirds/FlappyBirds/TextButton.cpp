@@ -5,7 +5,6 @@ TextButton::TextButton() {
 	handlePresser = BetterPresser();
 }
 
-
 void TextButton::show(String textBtn, Vector2f pos, bool isSprite) {
 	if (isSprite) {
 		texture.loadFromFile("./resources/images/buttonClick.png");

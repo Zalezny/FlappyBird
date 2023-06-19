@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include "RenderWindowSingleton.h"
 #include <SFML/Graphics.hpp>

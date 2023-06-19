@@ -5,6 +5,8 @@
 #include "TextButton.h"
 #include "ScreenEnum.h"
 #include "Screen.h"
+#include "Positions.h"
+#include "ScreenEnum.h"
 
 using namespace std;
 using namespace sf;
