@@ -102,6 +102,9 @@
     <ClCompile Include="HelpScreen.cpp">
       <Filter>Pliki źródłowe\screens</Filter>
     </ClCompile>
+    <ClCompile Include="WindowConfig.ixx">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h">
@@ -114,9 +117,6 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Background.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowConfig.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="MenuScreen.h">

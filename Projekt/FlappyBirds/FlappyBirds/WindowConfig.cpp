@@ -1,4 +1,4 @@
-#include "WindowConfig.h"
+module WindowConfig;
 
 WindowConfig::WindowConfig()
 {

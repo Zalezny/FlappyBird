@@ -164,6 +164,7 @@
     <ClCompile Include="ScoreScreen.cpp" />
     <ClCompile Include="TextButton.cpp" />
     <ClCompile Include="WindowConfig.cpp" />
+    <ClCompile Include="WindowConfig.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
@@ -182,7 +183,6 @@
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenEnum.h" />
     <ClInclude Include="TextButton.h" />
-    <ClInclude Include="WindowConfig.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

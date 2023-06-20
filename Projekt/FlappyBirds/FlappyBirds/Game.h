@@ -1,4 +1,7 @@
 #pragma once
+
+import WindowConfig;
+
 #include <SFML/Graphics.hpp>
 #include <chrono>
 #include <iomanip>
@@ -7,7 +10,6 @@
 #include "Bird.h"
 #include "Obstacle.h"
 #include "Background.h"
-#include "WindowConfig.h"
 #include "TextButton.h"
 #include "MenuScreen.h"
 #include "ScoreScreen.h"
