@@ -1,4 +1,8 @@
-# Flappy Bird
+<div style="text-align: center;">
+<img src ="https://github.com/Zalezny/FlappyBird/assets/65240240/d9bda4ae-46e7-441e-ad68-6843597f8316" width="600" height="400">
+</div>
+
+## Technologies
 - SFML
 - C++20
 - Modules, thread, filesystem, ranges
