@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "FileReader.h"
 
 int main() {
 	Game game = Game();
